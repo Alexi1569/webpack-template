@@ -18,7 +18,7 @@ const generateHtmlPlugins = templateDir => {
   });
 };
 
-const htmlPlugins = generateHtmlPlugins('./src/html/views');
+const htmlPlugins = generateHtmlPlugins('./src/pug/views');
 
 module.exports = {
   entry: ['./src/js/index.js', './src/sass/style.sass'],
@@ -68,9 +68,8 @@ module.exports = {
         })
       },
       {
-        test: /\.html$/,
-        include: path.resolve(__dirname, 'src/html/includes'),
-        use: ['raw-loader']
+        test: /\.pug$/,
+        loader: 'pug-loader'
       }
     ]
   },
